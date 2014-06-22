@@ -1,0 +1,117 @@
+/**
+ * Carbon
+ * A simple, lightweight and responsive CSS grid system by @colebemis
+ * https://github.com/colebemis/carbon
+ */
+
+/* Variables */
+
+// column-groups controls column divisions
+// e.g. column-groups = 2 3 4 will create a 2-, 3- and 4-column grid and
+// allow for the use of small-n-of-2, small-n-of-3 and small-n-of-4 classes
+column-groups = 2 3 4
+
+// Page max-width
+max-width = 960px
+
+// Gutter width
+gutter = 30px
+
+// Breakpoints
+breakpoint-small = 30rem
+breakpoint-medium = 48rem
+
+/* Base Styles */
+
+*
+*::before
+*::after
+  padding 0
+  margin 0
+  box-sizing border-box
+
+.container
+  width 100%
+  max-width max-width
+  padding 0 (gutter/2)
+  margin 0 auto
+
+.row
+  margin 0 (gutter/-2)
+  clearfix()
+  font-size 0 // Hack to remove whitespace between inline-block elements
+              // http://davidwalsh.name/remove-whitespace-inline-block
+
+.column
+  position relative
+  display inline-block
+  width 100%
+  padding 0 (gutter/2)
+  font-size 16px
+  font-size 1rem // Restore font-size previously set to 0
+  text-align left
+  vertical-align top
+
+  &:last-of-type
+    float right
+
+.centered
+  text-align center
+
+  > .column:last-of-type
+    float none
+
+/* Media queries */
+
+// Small screens
+// No media query since this is the default
+
+for number-of-columns in column-groups
+  for i in (1..number-of-columns)
+    .small-{i}-of-{number-of-columns}
+      width (i/number-of-columns) * 100%
+
+    .small-offset-{i}-of-{number-of-columns}
+      margin-left (i/number-of-columns) * 100%
+
+    .small-push-{i}-of-{number-of-columns}
+      left (i/number-of-columns) * 100%
+
+    .small-pull-{i}-of-{number-of-columns}
+      right (i/number-of-columns) * 100%
+
+// Medium screens
+
+@media screen and (min-width: breakpoint-small)
+
+  for number-of-columns in column-groups
+    for i in (1..number-of-columns)
+      .medium-{i}-of-{number-of-columns}
+        width (i/number-of-columns) * 100%
+
+      .medium-offset-{i}-of-{number-of-columns}
+        margin-left (i/number-of-columns) * 100%
+
+      .medium-push-{i}-of-{number-of-columns}
+        left (i/number-of-columns) * 100%
+
+      .medium-pull-{i}-of-{number-of-columns}
+        right (i/number-of-columns) * 100%
+
+// Large screens
+
+@media screen and (min-width: breakpoint-medium)
+
+  for number-of-columns in column-groups
+    for i in (1..number-of-columns)
+      .large-{i}-of-{number-of-columns}
+        width (i/number-of-columns) * 100%
+
+      .large-offset-{i}-of-{number-of-columns}
+        margin-left (i/number-of-columns) * 100%
+
+      .large-push-{i}-of-{number-of-columns}
+        left (i/number-of-columns) * 100%
+
+      .large-pull-{i}-of-{number-of-columns}
+        right (i/number-of-columns) * 100%
