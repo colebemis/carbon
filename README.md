@@ -3,7 +3,7 @@ Carbon
 
 > **Note:** This project was made in an effort to better understand responsive design and CSS layout and is not intended for production use. I recommend using [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and/or [LostGrid](https://github.com/peterramsing/lost).
 
-## A simple, lightweight and responsive CSS grid system
+### A simple, lightweight and responsive CSS grid system
 
 Carbon makes it easy to create complex layouts without the baggage of an entire framework. Carbon dynamically generates columns based on user specifications and supports both Stylus and Sass.
 
